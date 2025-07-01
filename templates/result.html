@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Internship Suggestions</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      padding: 2rem;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #007BFF;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    pre {
+      background: #eee;
+      padding: 1rem;
+      border-radius: 8px;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+    a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background: #007BFF;
+      color: white;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎯 Top 3 Internship Domain Recommendations</h2>
+
+    {% for rec in recommendations %}
+    <div class="card">
+      <h3>{{ rec.domain }}</h3>
+      <p><strong>Reason:</strong> {{ rec.reason }}</p>
+      <strong>Improvement Suggestions:</strong>
+      <ul>
+        {% for item in rec.improvements %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+
+    <h3>📄 Resume Extract:</h3>
+    <pre>{{ resume_text }}</pre>
+
+    <a href="/">🔁 Upload Another Resume</a>
+  </div>
+</body>
+</html>
